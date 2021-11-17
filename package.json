@@ -4,18 +4,20 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.16.0",
     "@vitejs/plugin-vue-jsx": "^1.2.0",
     "vitepress": "^0.20.1",
     "vitepress-theme-demoblock": "^1.3.2"
-  },
-  "dependencies": {
-    "@tiangong/use": "1.0.1",
-    "element-plus": "^1.2.0-beta.3"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "register:components": "vitepress-rc"
+  },
+  "dependencies": {
+    "@tiangong/use": "1.0.1",
+    "babel-polyfill": "^6.26.0",
+    "element-plus": "^1.2.0-beta.3"
   }
 }
