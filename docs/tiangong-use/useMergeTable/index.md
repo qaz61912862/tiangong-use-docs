@@ -55,7 +55,7 @@ export default defineComponent({
           prop="name"
         />
         <el-table-column
-          label="姓名"
+          label="年龄"
           prop="age"
         />
         <el-table-column
