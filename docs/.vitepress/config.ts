@@ -8,6 +8,7 @@ const sidebar = {
         { text: 'useMergeTable', link: '/tiangong-use/useMergeTable/' },
         { text: 'useDialogVisible', link: '/tiangong-use/useDialogVisible/' },
         { text: 'useList', link: '/tiangong-use/useList/' },
+        { text: 'useConcatList', link: '/tiangong-use/useConcatList/' },
       ]
     },
     // {
