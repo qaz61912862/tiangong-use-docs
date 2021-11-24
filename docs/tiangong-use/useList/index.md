@@ -1,8 +1,8 @@
 # useList
 
-Data display of list for ElTable
+用于ElTable分页列表
 
-## Usage
+## 使用示例
 
 <d-use-list></d-use-list>
 
@@ -138,7 +138,28 @@ export default defineComponent({
 
 ```
 
-## Type Declarations
+## 入参
+|参数|说明|
+|:-:|:-:|
+|updateRouteUrl|是否刷新列表|
+|request|详见下文类型声明|
+|response|详见下文类型声明|
+
+## 出参
+|参数|说明|
+|:-:|:-:|
+|params|请求参数|
+|resData|接口返回数据|
+|tableData|接口返回数据的list|
+|tableTotal|总数|
+|tableLoading|是否加载中|
+|handleSearch|搜索事件|
+|handleReset|重置事件|
+|handleSizeChange|每页的数量改变事件|
+|handleCurrentChange|翻页事件|
+
+
+## 类型声明
 
 ```ts
 import { UnwrapRef, Ref } from 'vue';
@@ -161,10 +182,16 @@ interface UseListConfig<T = any, P = any> {
          * 请求参数
          */
         params?: P;
+        /**
+         * pageNum的字段名，默认为pageNum
+         */
         pageNumKey?: string;
+        /**
+         * pageSize的字段名，默认为pageSize
+         */
         pageSizeKey?: string;
         /**
-         * 接口响应数据 key
+         * 自定义处理params
          */
         handleParams?: (params: P) => P;
         /**
@@ -191,19 +218,49 @@ interface UseListConfig<T = any, P = any> {
          * 例： 响应数据为 { data: { list: [], total: 0 } } 则传递 data.total;
          */
         totalKey?: string;
+        /**
+         * 自定义处理返回数据
+         */
         handleResponseData?: (list: T[], res?: IResponse) => T[];
     };
 }
 
 interface IReturns<T, P, U> {
+    /**
+     * 请求参数
+     */
     params: Ref<UnwrapRef<P>>;
+    /**
+     * 接口返回数据
+     */
     resData: Ref<UnwrapRef<U>>;
+    /**
+     * 接口返回数据的list
+     */
     tableData: Ref<UnwrapRef<T[]>>;
+    /**
+     * 总数
+     */
     tableTotal: Ref<number>;
+    /**
+     * 是否加载中
+     */
     tableLoading: Ref<boolean>;
+    /**
+     * 搜索事件
+     */
     handleSearch: (pageNum?: number) => any;
+    /**
+     * 重置事件
+     */
     handleReset: () => any;
+    /**
+     * 每页的数量改变事件
+     */
     handleSizeChange: (pageNum: number) => any;
+    /**
+     * 翻页事件
+     */
     handleCurrentChange: (pageNum: number) => any;
 }
 export declare function useList<T = any, P = any, U = any>(config: UseListConfig<T, P>): IReturns<T, P, U>;

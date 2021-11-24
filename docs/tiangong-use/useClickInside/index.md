@@ -1,8 +1,8 @@
 # useClickInside
 
-Listen for clicks inside of an element. Useful for modal or dropdown.
+判断是否点击了元素内部
 
-## Usage
+## 使用示例
 
 <d-use-click-inside></d-use-click-inside>
 
@@ -30,7 +30,13 @@ export default defineComponent({
 });
 ```
 
-## Type Declarations
+## 入参
+|参数|说明|
+|:-:|:-------------:|
+|ref|绑定的dom节点|
+|callback|回调函数，接收error字段，若点击了元素外部，error不为空|
+
+## 类型声明
 
 ```ts
 import { Ref } from 'vue';

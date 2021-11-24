@@ -1,8 +1,8 @@
 # useMergeTable
 
-Parallel according to the same column combination for ElTable 
+ElTable根据某个相同的列属性进行行合并 
 
-## Usage
+## 使用示例
 
 <d-use-merge-table></d-use-merge-table>
 
@@ -29,7 +29,7 @@ export default defineComponent({
     ];
     onMounted(() => {
       const { mergeCol } = useMergeTable<IListItem>(
-        list, 'id', ['id'],
+        list, 'id', ['id'], // 第三个参数可传入['id']或[0]
       );
       mergeColFn.value = mergeCol
     });
@@ -68,7 +68,19 @@ export default defineComponent({
 });
 
 ```
-## Type Declarations
+## 入参
+|参数|说明|
+|:-:|:-:|
+|data|ElTable的data参数|
+|key|data的item的某个字段名（根据该字段相同则合并行）|
+|mergeColumns|需进行合并的列（el-table-column的prop值或者列的下标（从0开始））组成的数组|
+
+## 出参
+|参数|说明|
+|:-:|:-:|
+|mergeCol|赋值给ElTable的span-method属性|
+
+## 类型声明
 
 ```ts
 export declare function useMergeTable<T>(data: T[], key: keyof T, mergeColumns: (string | number)[]): {

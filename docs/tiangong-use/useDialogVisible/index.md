@@ -1,12 +1,12 @@
 # useDialog
 
-Control visible for ElDialog
+控制ElDialog的打开和隐藏
 
-## Usage
+## 使用示例
 
 <d-use-dialog-visible></d-use-dialog-visible>
 
-### Parent
+### 父组件
 
 ```tsx
 import { defineComponent, reactive } from 'vue';
@@ -42,7 +42,7 @@ export default defineComponent({
 
 ```
 
-### Child
+### 子组件
 
 ```tsx
 import { defineComponent } from 'vue';
@@ -90,7 +90,19 @@ export default defineComponent({
 
 ```
 
-## Type Declarations
+## 入参
+|参数|说明|
+|:-:|:-:|
+|props|直接传入setup()的参数props|
+|emit|直接传入setup()emit|
+
+## 出参
+|参数|说明|
+|:-:|:-:|
+|visible|赋值给ElDialog的v-model|
+
+
+## 类型声明
 
 ```ts
 export interface DialogProps {

@@ -16,7 +16,6 @@
     "register:components": "vitepress-rc"
   },
   "dependencies": {
-    "@tiangong/use": "1.0.1",
     "babel-polyfill": "^6.26.0",
     "element-plus": "^1.2.0-beta.3"
   }
